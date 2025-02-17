@@ -3,7 +3,7 @@ import GamePageClient from "./clients";
 import { Metadata } from "next";
 
 
-export const metadate: Metadata = {
+export const metadata: Metadata = {
     title: "Games",
     description: "Simple and fun games to play",
 }
