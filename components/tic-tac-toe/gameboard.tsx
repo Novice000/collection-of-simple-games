@@ -27,12 +27,12 @@ function TicTacToe( {numberOfSquares}: TicTacToeProps) {
             setGameWinner(xTurn ? "O" : "X")
         }
         if (numberOfPlays === NOS * NOS) setGameOver(true);
-        setNumberOfPlays(numberOfPlays + 1);
         console.log(numberOfPlays)
-    }, [state])
+    }, [NOS, numberOfPlays, state, xTurn])
 
     function updateValue(row: number, col: number, value: string) {
         dispatch({ type: "UPDATE_VALUE", payload: { row, col, value }})
+        setNumberOfPlays(numberOfPlays + 1);
         setXTurn(!xTurn)
     }
 
@@ -58,7 +58,12 @@ function TicTacToe( {numberOfSquares}: TicTacToeProps) {
       className="w-full flex items-center justify-center">
         <Card className="flex flex-col items-center justify-center w-3/5">
           <CardHeader className="text-2xl">
-            {gameOver ? "Game Over" : xTurn ? "X's Turn" : "O's Turn"}
+            <motion.div
+            initial= {{scale:1, }}
+            animate={{scale: 1.5,}}
+            transition={{duration: 0.5, repeat: Infinity, ease: "easeInOut", repeatDelay: 0.2, }}>
+                {gameOver ? "Game Over" : xTurn ? "X's Turn" : "O's Turn"}
+            </motion.div>
           </CardHeader>
           <CardContent className="flex flex-col justify-center items-center">
             {!gameOver &&
