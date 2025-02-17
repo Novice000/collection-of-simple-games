@@ -1,6 +1,6 @@
 import React from "react";
 import GameCard from "@/components/games/game-card";
-import { gameCards } from "@/lib/games/games";
+import { gameCards } from "@/store/games/games";
 
 function GamePageClient() {
     return (
