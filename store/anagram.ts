@@ -82,4 +82,20 @@ const longWords: string[] = [
   "misinterpretation",
 ];
 
+
+export const difficulty: {difficulty: "easy" | "normal" | "hard"; title: string}[] = [
+  {
+    difficulty: "easy",
+    title: "easy"
+  },
+  {
+    difficulty: "normal",
+    title: "normal"
+  },
+  {
+    difficulty: "hard",
+    title: "hard"
+  }
+]
+
 export { shortWords, mediumWords, longWords };
