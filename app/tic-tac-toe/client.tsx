@@ -15,8 +15,8 @@ function TicTactToeClient(){
 
 
     return (
-      <motion.div className="pt-20 w-full h-4/5 flex flex-col justify-center items-center max-h-full">
-        <Card className=" w-full md:w-4/5 flex flex-col space-y-2 justify-center items-center text-white py-2">
+      <motion.div className="mt-20 w-screen flex-1  px-20 grid place-content-center max-h-screen">
+        <Card className=" flex flex-col space-y-2 justify-center items-center text-white py-2">
           <CardHeader className="text-white">
             <CardTitle className="text-white text-4xl">Tic Tac Toe</CardTitle>
             <CardDescription className="text-2xl w-full text-center">
@@ -26,16 +26,16 @@ function TicTactToeClient(){
           </CardHeader>
 
           {!gameVisible && (
-            <CardContent className="flex space-x-5 justify-center items-center flex-col">
+            <CardContent className="w-full h-full flex space-x-5 justify-center items-center flex flex-col">
               <motion.div 
               initial = {{ scale: 0 }}
               animate = {{ scale: 1 }}
               transition={{ duration: 0.5, delay: 0.5 }}
-              className="flex space-x-5 justify-center items-center">
+              className="flex flex-col space-y-5 justify-center items-center">
                   {difficultyState.map((difficulty, index) => (
                     <Button
                       key={index}
-                      className="border w-10 md:w-1/5 border-white shadow-lg hover:scale-105 text-md md:text-xl"
+                      className="difficulty-button"
                       size={"lg"}
                       onClick={() => {
                         setNOS(difficulty.N);

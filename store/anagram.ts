@@ -1,101 +1,90 @@
-const shortWords: string[] = [
+const easyWords: string[] = [
   "apple",
-  "brave",
   "chair",
   "dream",
-  "flame",
   "grace",
   "happy",
-  "ideal",
-  "jolly",
   "light",
-  "magic",
-  "noted",
   "ocean",
   "peace",
   "quick",
   "river",
   "smart",
   "truth",
-  "unite",
   "valor",
-  "youth",
   "zebra",
-  "forest",
-  "honest",
-  "impact",
-  "journey",
-  "lively",
-  "mirror",
-  "savior",
-  "wisdom",
+  "jolly",
+  "noted",
+  "unity",
+  "flame",
+  "ideal",
+  "sunny",
 ];
 
-const mediumWords: string[] = [
-  "adventurous",
-  "agreement",
-  "backstory",
-  "breakthrough",
-  "determined",
-  "expression",
-  "foundation",
-  "gratitude",
-  "landscaper",
-  "leadership",
-  "motivation",
-  "meaningful",
-  "judgmental",
-  "economical",
-  "recreation",
-  "compassion",
-  "creativity",
-  "reliability",
-  "impossible",
-  "conclusion",
-  "vulnerable",
-  "connection",
-  "teamwork",
-  "perfection",
-];
-
-const longWords: string[] = [
-  "extraordinary",
-  "revolutionary",
-  "unbelievable",
-  "understanding",
-  "inconceivable",
-  "unquestionable",
-  "unconditional",
-  "unforgettable",
-  "comprehensive",
-  "uncompromising",
-  "unmistakable",
-  "unintelligible",
-  "untraditional",
-  "unpredictable",
-  "unquestionably",
-  "unrestrained",
-  "uninterrupted",
-  "developmental",
-  "disorientation",
-  "acknowledgment",
-  "misinterpretation",
+const normalWords: string[] = [
+  "brisk",
+  "crypt",
+  "fjord",
+  "glyph",
+  "jumpy",
+  "knack",
+  "mirth",
+  "nudge",
+  "plumb",
+  "quirk",
+  "spite",
+  "throb",
+  "vexed",
+  "wharf",
+  "zeal",
+  "cloud",
+  "dwarf",
+  "feral",
+  "lapse",
+  "wryly",
 ];
 
 
-export const difficulty: {difficulty: "easy" | "normal" | "hard"; title: string}[] = [
+const hardWords: string[] = [
+  "axiom",
+  "baneful",
+  "cynosure",
+  "dilemma",
+  "effigy",
+  "epitome",
+  "facade",
+  "gnarled",
+  "influx",
+  "opaque",
+  "quorum",
+  "seraph",
+  "sphinx",
+  "thwart",
+  "unduly",
+  "vortex",
+  "wraith",
+  "zephyr",
+  "yonder",
+  "oblique",
+];
+
+
+export const difficulty: {
+  difficulty: "easy" | "normal" | "hard";
+  title: string;
+}[] = [
   {
     difficulty: "easy",
-    title: "easy"
+    title: "easy",
   },
   {
     difficulty: "normal",
-    title: "normal"
+    title: "normal",
   },
   {
     difficulty: "hard",
-    title: "hard"
-  }
-]
+    title: "hard",
+  },
+];
 
-export { shortWords, mediumWords, longWords };
+export { easyWords, normalWords, hardWords };

@@ -48,7 +48,7 @@ function TicTacToe({ numberOfSquares }: TicTacToeProps) {
     setXTurn(!xTurn);
   }
 
-  function reset() {
+  function replay() {
     dispatch({ type: "RESET" });
     setGameWinner(null);
     setNumberOfPlays(0);
@@ -70,7 +70,7 @@ function TicTacToe({ numberOfSquares }: TicTacToeProps) {
       initial={{ scale: 0 }}
       animate={{ scale: 1 }}
       transition={{ type: "tween", delay: 0.2, duration: 1 }}
-      className="w-full flex items-center justify-center h-full"
+      className=" flex items-center justify-center h-full"
     >
       <Card className="flex flex-col items-center justify-center w-full md:w-3/5 border-[0px]">
         <CardHeader className="text-2xl">
@@ -100,7 +100,7 @@ function TicTacToe({ numberOfSquares }: TicTacToeProps) {
                         updateValue(rowIndex, colIndex, xTurn ? "X" : "O")
                       }
                       disabled={cell !== ""}
-                      className="border-2 border-white w-full h-full text-xl text-black font-bold"
+                      className="border-2 border-white w-full h-full text-xl text-black"
                     >
                       {cell}
                     </Button>
@@ -117,10 +117,10 @@ function TicTacToe({ numberOfSquares }: TicTacToeProps) {
         </CardContent>
         <CardFooter>
           <Button
-            className="border border-white shadow-lg shadow-gray hover:scale-105 text-xl"
-            onClick={reset}
+            className="replay-button"
+            onClick={replay}
           >
-            Replay
+            Play Again
           </Button>
         </CardFooter>
       </Card>

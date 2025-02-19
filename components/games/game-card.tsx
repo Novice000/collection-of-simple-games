@@ -24,7 +24,7 @@ function GameCard({ GameCardProps }: { GameCardProps: GameCardProps }) {
         router.push(url)
     }
     return (
-        <Card className="border border-black hover:translate-y-3">
+        <Card className="border w-full border-black">
             <CardHeader>
                 <CardTitle className="text-2xl">{GameCardProps.title}</CardTitle>
             </CardHeader>

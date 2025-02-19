@@ -81,16 +81,12 @@ export function Anagram({ difficulty }: AnagramBoardProps) {
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.5 }}
         exit={{ x: "-200vw" }}
-        className="h-full grid place-items-center"
+        className=" grid place-items-center"
       >
         <DndContext
           sensors={useSensors(
-            useSensor(PointerSensor, {
-              activationConstraint: { distance: 10 },
-            }),
-            useSensor(TouchSensor, {
-              activationConstraint: { delay: 250, tolerance: 5 },
-            }),
+            useSensor(PointerSensor),
+            useSensor(TouchSensor),
             useSensor(KeyboardSensor, {
               coordinateGetter: sortableKeyboardCoordinates,
             })
@@ -108,12 +104,12 @@ export function Anagram({ difficulty }: AnagramBoardProps) {
                   <Sortables key={item.id} wordObj={item} />
                 ))}
               </div>
-              <Button onClick={validate}>Submit</Button>
+              <Button onClick={validate} className="replay-button mt-4">Submit</Button>
             </SortableContext>
           )}
           {isSolved && (
             <Button
-              className="border border-white shadow-lg shadow-gray hover:scale-105 text-xl"
+              className="replay-button"
               onClick={replay}
             >
               Play Again
@@ -124,3 +120,4 @@ export function Anagram({ difficulty }: AnagramBoardProps) {
     </AnimatePresence>
   );
 }
+

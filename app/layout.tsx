@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
-import { Play } from "next/font/google";
+import { Luckiest_Guy } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/layout/header";
 
-const play = Play({ subsets: ["latin"],
-  weight: "400"
+const play = Luckiest_Guy({ subsets: ["latin"],
+  weight: "400",
+  preload: true
  });
 
 
@@ -22,7 +23,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${play.className} antialiased h-screen`}
+        className={`${play.className} antialiased flex h-screen`}
       >
         <Header /> 
         {children}

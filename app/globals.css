@@ -5,6 +5,8 @@
 
 body {
   background: radial-gradient(circle, #A64D79,#6A1E55, #3B1C32);
+  background-size: cover;
+  background-position: center;
   color: #A64D79;
 }
 
@@ -75,11 +77,42 @@ body {
   }
 }
 
+@layer utilities {
+  .replay-button {
+    @apply border border-white shadow-lg shadow-gray-400 hover:scale-105 text-xl md:text-base;
+    
+  }
+  .difficulty-button {
+    @apply border w-10 md:w-1/5 border-white shadow-lg py-5 px-14 hover:scale-105 md:text-xl
+  }
+}
+
+/**
+ * Global styles
+ *
+ * These styles are applied to every element in the app (`*` selector).
+ * They set the default border, background, and text colors.
+ *
+ * To use, simply import this file in your `app/globals.css` file.
+ *
+ * @example
+ * // app/globals.css
+ * @import '@/styles/base.css';
+ */
 @layer base {
   * {
-    @apply border-border;
+    /**
+     * Set the default border color to the `border` token.
+     * You can change this by setting a different value for the `border` token.
+     */
+    @apply border-border box-border;
   }
   body {
+    /**
+     * Set the default background color to the `background` token,
+     * and the default text color to the `foreground` token.
+     * You can change these by setting different values for the `background` and `foreground` tokens.
+     */
     @apply bg-background text-foreground;
   }
 }

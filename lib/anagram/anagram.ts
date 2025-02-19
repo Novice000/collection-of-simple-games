@@ -1,4 +1,4 @@
-import { shortWords, mediumWords, longWords } from "@/store/anagram";
+import { easyWords, normalWords, hardWords } from "@/store/anagram";
 
 export type AnagramBoardProps = {
   difficulty: "easy" | "normal" | "hard";
@@ -13,19 +13,19 @@ export function getRandomWord(level: string) {
   let words;
   switch (level) {
     case "easy":
-      words = shortWords;
+      words = easyWords;
       break;
     case "normal":
-      words = mediumWords;
+      words = normalWords;
       break;
     case "hard":
-      words = longWords;
+      words = hardWords;
       break;
     default:
-      words = longWords;
+      words = easyWords;
   }
   const randomIndex = Math.floor(Math.random() * words.length);
-  return words[randomIndex].split("");
+  return words[randomIndex].toUpperCase().split("");
 }
 
 export function convertToObj(word: string[]) {
