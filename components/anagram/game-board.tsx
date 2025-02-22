@@ -26,7 +26,7 @@ import {
 import { Sortables } from "./sortables";
 import { Button } from "@/components/ui/button";
 
-export function Anagram({ difficulty }: AnagramBoardProps) {
+function AnagramGameBoard({ difficulty }: AnagramBoardProps) {
   const [word, setWord] = useState(getRandomWord(difficulty));
   const [wordObj, setWordObj] = useState(convertToObj(word));
   const [randomised, setRandomised] = useState<wordObj[] | null>(null);
@@ -121,3 +121,4 @@ export function Anagram({ difficulty }: AnagramBoardProps) {
   );
 }
 
+export default AnagramGameBoard

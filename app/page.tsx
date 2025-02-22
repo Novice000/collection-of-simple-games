@@ -4,7 +4,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { useRouter } from "next/navigation";
 import React from "react";
 
-export default function Home() {
+function Home() {
   const router = useRouter()
   function handleWelcome(){
     router.push("/games")
@@ -25,3 +25,4 @@ export default function Home() {
   );
 }
 
+export default Home

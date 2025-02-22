@@ -10,7 +10,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import React, { useEffect, useState } from "react";
 import { difficulty as difficultyLevels } from "@/store/anagram";
 import { Button } from "@/components/ui/button";
-import { Anagram } from "@/components/anagram/game-board";
+import  AnagramGameBoard from "@/components/anagram/game-board";
 
 function AnagramClient() {
   const [difficulty, setDifficulty] = useState<
@@ -51,7 +51,7 @@ function AnagramClient() {
                 ))}
               </div>
             )}
-            {difficulty !== null && <Anagram difficulty={difficulty} />}
+            {difficulty !== null && <AnagramGameBoard difficulty={difficulty} />}
           </CardContent>
           {difficulty !== null && (
             <CardFooter className="flex flex-col items-center justify-center space-x-5 w-full p-[0px]">

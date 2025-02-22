@@ -3,7 +3,7 @@ import { useSortable } from "@dnd-kit/sortable";
 import { wordObj } from "@/lib/anagram/anagram";
 import { CSS } from "@dnd-kit/utilities";
 
-export function Sortables({ wordObj }: { wordObj: wordObj }) {
+function Sortables({ wordObj }: { wordObj: wordObj }) {
   const { attributes, listeners, setNodeRef, transform, transition } =
     useSortable({ id: wordObj.id });
 
@@ -24,3 +24,5 @@ export function Sortables({ wordObj }: { wordObj: wordObj }) {
       </div>
   );
 }
+
+export { Sortables }

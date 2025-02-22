@@ -8,6 +8,11 @@ export const gameCards = [
     {title: "Anagram",
      url: routes.anagram,
      description: "An engaging game where you are given a randomized set of letters and your task is to rearrange them to form the correct word."
+    },
+    {
+        title : "word guess",
+        url: routes.wordGuess,
+        description: "A simple game where you are given a word and your task is to guess the correct word within 5 tries"
     }
 
 ]
