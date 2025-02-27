@@ -1,13 +1,7 @@
 "use client";
 import React, { useEffect, useReducer, useState } from "react";
 import { Button } from "../ui/button";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-} from "../ui/card";
+import { Card, CardContent, CardDescription, CardFooter, CardHeader } from "../ui/card";
 import { motion } from "framer-motion";
 import tictactoeReducer from "@/lib/tictactoe/reducer";
 import {
@@ -70,37 +64,30 @@ function TicTacToe({ numberOfSquares }: TicTacToeProps) {
       initial={{ scale: 0 }}
       animate={{ scale: 1 }}
       transition={{ type: "tween", delay: 0.2, duration: 1 }}
-      className=" flex items-center justify-center h-full"
     >
-      <Card className="flex flex-col items-center justify-center w-full md:w-3/5 border-[0px]">
-        <CardHeader className="text-2xl">
+      <Card className="border-none shadow-none">
+        <CardHeader>
           <motion.div
-            initial={{ scale: 1 }}
-            animate={{ scale: 1.5 }}
-            transition={{
-              duration: 0.5,
-              repeat: Infinity,
-              ease: "easeInOut",
-              repeatDelay: 0.2,
-            }}
-            className="w-full"
+            initial={{ color: "white" }}
+            animate={{ color: xTurn ? "black" : "white" }}
+            className="text-center text-xl"
           >
             {gameOver ? "Game Over" : xTurn ? "X's Turn" : "O's Turn"}
           </motion.div>
         </CardHeader>
-        <CardContent className="w-full flex flex-col justify-center items-center">
+        <CardContent className="grid place-content-center">
           {!gameOver &&
             state.map((row, rowIndex) => (
-              <div key={rowIndex} className="flex">
+              <div key={rowIndex} 
+              className="flex">
                 {row.map((cell, colIndex) => (
-                  <div key={colIndex} className="w-16 h-16">
+                  <div key={colIndex}>
                     <Button
-                      size={"lg"}
                       onClick={() =>
                         updateValue(rowIndex, colIndex, xTurn ? "X" : "O")
                       }
+                      className="border border-black w-10 h-10 md:h-16 md:w-16 rounded-none"
                       disabled={cell !== ""}
-                      className="border-2 border-white w-full h-full text-xl text-black"
                     >
                       {cell}
                     </Button>
@@ -110,16 +97,14 @@ function TicTacToe({ numberOfSquares }: TicTacToeProps) {
             ))}
 
           {gameOver && (
-            <CardDescription className="text-2xl ">
+            <CardDescription>
               {gameWinner ? gameWinner + " Wins" : "Tie"}
             </CardDescription>
           )}
         </CardContent>
         <CardFooter>
-          <Button
-            className="replay-button"
-            onClick={replay}
-          >
+          <Button onClick={replay}
+          className="w-full border border-white shadow-lg shadow-gray-400 hover:scale-105 text-xl md:text-base mt-4">
             Play Again
           </Button>
         </CardFooter>
@@ -129,3 +114,4 @@ function TicTacToe({ numberOfSquares }: TicTacToeProps) {
 }
 
 export default TicTacToe;
+

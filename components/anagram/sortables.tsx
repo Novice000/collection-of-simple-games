@@ -18,7 +18,8 @@ function Sortables({ wordObj }: { wordObj: wordObj }) {
         {...listeners}
         {...attributes}
         style={styles}
-        className="border border-white flex justify-center items-center rounded-xl py-4 px-6 md:text-3xl touch-none size-4"
+        className="border border-white rounded-md w-10 h-10 flex items-center justify-center touch-none bg-black"
+
       >
         {wordObj.value}
       </div>

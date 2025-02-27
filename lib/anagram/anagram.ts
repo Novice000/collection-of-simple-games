@@ -9,6 +9,25 @@ export interface wordObj {
   value: string;
 };
 
+export function getWord(level: string) {
+    let words;
+    switch (level) {
+      case "easy":
+        words = easyWords;
+        break;
+      case "normal":
+        words = normalWords;
+        break;
+      case "hard":
+        words = hardWords;
+        break;
+      default:
+        words = easyWords;
+    }
+    const randomIndex = Math.floor(Math.random() * words.length);
+    return words[randomIndex];
+}
+
 export function getRandomWord(level: string) {
   let words;
   switch (level) {

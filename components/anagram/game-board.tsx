@@ -42,7 +42,6 @@ function AnagramGameBoard({ difficulty }: AnagramBoardProps) {
 
   function handleDragEnd(event: DragEndEvent) {
     const { active, over } = event;
-    console.log(randomised);
     if (over && active) {
       if (active.id !== over.id) {
         setRandomised((prev) => {
@@ -55,18 +54,16 @@ function AnagramGameBoard({ difficulty }: AnagramBoardProps) {
           }
         });
       }
-    } else return;
+    }
   }
 
   function validate() {
-    // console.log(randomised, wordObj)
-    let validity;
     if (randomised !== null) {
-      validity = randomised.every((item, index) => {
+      const validity = randomised.every((item, index) => {
         return item.value === wordObj[index].value;
       });
-    } else validity = false;
-    setIsSolved(validity);
+      setIsSolved(validity);
+    }
   }
 
   function replay(){
@@ -81,7 +78,6 @@ function AnagramGameBoard({ difficulty }: AnagramBoardProps) {
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.5 }}
         exit={{ x: "-200vw" }}
-        className=" grid place-items-center"
       >
         <DndContext
           sensors={useSensors(
@@ -99,21 +95,29 @@ function AnagramGameBoard({ difficulty }: AnagramBoardProps) {
               items={randomised}
               strategy={horizontalListSortingStrategy}
             >
-              <div className="flex justify-start gap-4 border border-dashed border-black p-4 rounded-xl">
+              <div className="flex justify-between gap-2">
                 {randomised?.map((item) => (
                   <Sortables key={item.id} wordObj={item} />
                 ))}
               </div>
-              <Button onClick={validate} className="replay-button mt-4">Submit</Button>
+              <Button
+                onClick={validate}
+                className="w-full border border-white shadow-lg shadow-gray-400 hover:scale-105 text-xl md:text-base mt-4 bg-green-400"
+              >
+                Submit
+              </Button>
             </SortableContext>
           )}
           {isSolved && (
-            <Button
-              className="replay-button"
-              onClick={replay}
-            >
-              Play Again
-            </Button>
+            <div>
+              <div className="text-green-400 text-center">Correct !!!</div>
+              <Button
+                onClick={replay}
+                className="w-full border border-white shadow-lg shadow-gray-400 hover:scale-105 text-xl md:text-base mt-4"
+              >
+                Play Again
+              </Button>
+            </div>
           )}
         </DndContext>
       </motion.div>

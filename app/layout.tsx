@@ -26,7 +26,9 @@ export default function RootLayout({
         className={`${play.className} antialiased flex h-screen`}
       >
         <Header /> 
-        {children}
+        <div className="h-screen w-full grid place-content-center p-2">
+          {children}
+        </div>
       </body>
     </html>
   );

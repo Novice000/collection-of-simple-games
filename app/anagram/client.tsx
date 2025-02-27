@@ -5,6 +5,7 @@ import {
   CardDescription,
   CardFooter,
   CardHeader,
+  CardTitle,
 } from "@/components/ui/card";
 import { AnimatePresence, motion } from "framer-motion";
 import React, { useEffect, useState } from "react";
@@ -22,42 +23,51 @@ function AnagramClient() {
   return (
     <AnimatePresence>
       <motion.div
-        className="flex-1 w-screen p-4 flex justify-center items-center"
         initial={{ opacity: 0, scale: 0.5 }}
         animate={{ opacity: 1, scale: 1 }}
         exit={{ opacity: 0, scale: 0.5 }}
         transition={{ duration: 0.5 }}
       >
-        <Card className=" border border-black m-20">
+        <Card>
           <CardHeader>
-            <CardDescription className="text-4xl text-center">
-              Anagram
-            </CardDescription>
-            <CardDescription className="text-xl text-center">
+            <CardTitle className="text-center text-2xl">Anagram</CardTitle>
+            <CardDescription className="text-center text-gray-500">
               {difficulty ? "Playing" : "Select Difficulty"}
             </CardDescription>
           </CardHeader>
-          <CardContent className="space-y-5">
+          <CardContent>
             {difficulty === null && (
-              <div className="flex flex-col justify-center items-center space-y-5">
+              <div className="flex flex-col md:flex-row gap-4">
                 {difficultyLevels.map((item, index) => (
                   <Button
                     key={index}
                     onClick={() => setDifficulty(item.difficulty)}
-                    className="difficulty-button"
+                    className="border border-white  hover:scale-105 text-xl md:text-base"
                   >
                     {item.title}
                   </Button>
                 ))}
               </div>
             )}
-            {difficulty !== null && <AnagramGameBoard difficulty={difficulty} />}
+            {difficulty !== null && (
+              <AnagramGameBoard difficulty={difficulty} />
+            )}
           </CardContent>
           {difficulty !== null && (
-            <CardFooter className="flex flex-col items-center justify-center space-x-5 w-full p-[0px]">
+            <CardFooter>
               <Button
-                className="border w-1/3 mb-4 bg-black border-white shadow-lg hover:scale-105 text-xl text-primary hover:text-white"
                 onClick={() => setDifficulty(null)}
+                className="w-full
+                bg-black
+                text-red-700
+                border
+                border-white
+                shadow-lg
+                shadow-gray-400
+                hover:scale-105
+                text-xl
+                md:text-base
+                mt-4"
               >
                 RESET
               </Button>
